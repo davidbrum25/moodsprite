@@ -1,11 +1,13 @@
 Moodsprite v2.0
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/davidbrum25/moodsprite/refs/heads/main/_brading/_png/moodsprite_git_preview.png" alt="Moodsprite Logo" width="250"/>
+<img src="https://github.com/davidbrum25/moodsprite/blob/main/_branding/png/moodsprite_git_preview.png?raw=true" alt="Moodsprite Logo" width="250"/>
 </div>
 
 <p align="center">
-<strong>Sprite debugger and animation previewer. Test your pixel art in a live physics environment instantly.</strong>
+<strong>
+  Sprite debugger and animation previewer.
+  Test your pixel art in a live physics environment instantly.</strong>
 </p>
 
 ✨ What's New in Version 2.0
