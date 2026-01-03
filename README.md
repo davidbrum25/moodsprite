@@ -1,4 +1,4 @@
-Moodsprite v2.0
+Moodsprite v2.1
 
 <div align="center">
 <img src="https://github.com/davidbrum25/moodsprite/blob/main/_branding/png/moodsprite_git_preview.png?raw=true" alt="Moodsprite Logo" width="250"/>
@@ -10,15 +10,15 @@ Moodsprite v2.0
   Test your pixel art in a live physics environment instantly.</strong>
 </p>
 
-✨ What's New in Version 2.0
+✨ What's New in Version 2.1
 
-This major update transforms Moodsprite into a fully functional testing ground for 2D assets.
+This update brings advanced workflow tools for handling complex character states and improved usability.
 
-🕹️ Live Physics Playground: Test your sprites in a reactive environment. Walk, jump, and idle to see how your animations feel in actual gameplay.
-🪄 Magic Wand Removal: Instantly remove solid backgrounds from uploaded sprite sheets with the new client-side processing tool.
-🧠 Logic Mapping: Define specific sprite sheet rows for IDLE, WALK, and JUMP states to automate animation switching.
-💾 Config Export: Once you've calibrated your sprite's size, offsets, and speed, export a .json file to use directly in your game engine.
-🌑 Brand New UI: A sleek, dark-mode interface with glassmorphism effects, improved sliders, and a cohesive footer.
+📂 Multi-Sheet Support: Upload separate sprite sheets for specific states (IDLE, WALK, JUMP, CROUCH).
+⏱️ Per-State Timings: Set individual frame lookups for each state (e.g., 4 frames for Idle, 6 for Walk) for perfect animation speeds.
+🧘 Crouch Mechanic: Added a dedicated Crouch state (trigger with 'S' or Down Arrow) with its own sheet and row logic.
+🖐️ Logic Map Drag-and-Drop: Drag files directly onto the "Idle Sheet" or "Walk Sheet" buttons to instantly load them.
+🎨 Alignment & UI: Improved grid alignment and "Frames" labels for better readability.
 
 Core Features
 

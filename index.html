@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moodsprite v2.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://raw.githubusercontent.com/davidbrum25/moodsprite/refs/heads/main/moodsprite_fav_icon_alternative.png" type="image/png">
+    <link rel="icon"
+        href="https://raw.githubusercontent.com/davidbrum25/moodsprite/refs/heads/main/moodsprite_fav_icon_alternative.png"
+        type="image/png">
     <style>
         :root {
             --bg-color: #09090b;
             --border-color: rgba(255, 255, 255, 0.08);
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
@@ -36,10 +42,11 @@
             color: #a1a1aa;
             transition: all 0.2s;
         }
+
         .btn-secondary:hover {
             background-color: #27272a;
             color: white;
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .btn-primary {
@@ -48,6 +55,7 @@
             border: 1px solid transparent;
             transition: all 0.2s;
         }
+
         .btn-primary:hover {
             background-color: #e4e4e7;
         }
@@ -64,23 +72,38 @@
             color: #a1a1aa;
             transition: all 0.2s;
         }
+
         .btn-icon:hover {
             background-color: #27272a;
             color: white;
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
 
         /* Range Slider Styling */
         input[type=range] {
             -webkit-appearance: none;
+            appearance: none;
             background: transparent;
         }
+
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             height: 12px;
@@ -89,42 +112,54 @@
             background: #e4e4e7;
             cursor: pointer;
             margin-top: -5px;
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.5);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
             transition: transform 0.1s;
         }
-        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.1); background: #fff; }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            background: #fff;
+        }
+
         input[type=range]::-webkit-slider-runnable-track {
             height: 2px;
             background: #27272a;
             border-radius: 1px;
         }
+
         input[type=number] {
             background: transparent;
             border-bottom: 1px solid #27272a;
             transition: border-color 0.2s;
         }
+
         input[type=number]:focus {
             border-color: #71717a;
             outline: none;
         }
     </style>
 </head>
+
 <body class="h-screen flex flex-col overflow-hidden text-sm">
 
-    <header class="h-14 px-4 flex items-center justify-between flex-shrink-0 z-20 border-b border-white/5 bg-[#09090b]/80 backdrop-blur-xl">
+    <header
+        class="h-14 px-5 flex items-center justify-between flex-shrink-0 z-20 border-b border-white/5 bg-[#09090b]/80 backdrop-blur-xl">
         <div class="flex items-center gap-3">
-            <img src="https://raw.githubusercontent.com/davidbrum25/moodsprite/main/_branding/png/moodsprite_fav_icon_alternative.png" alt="Moodsprite Logo" class="w-8 h-8 rounded-full border border-white/5 object-cover"
-            style="border: none;">
+            <img src="https://raw.githubusercontent.com/davidbrum25/moodsprite/main/_branding/png/moodsprite_fav_icon_alternative.png"
+                alt="Moodsprite Logo" class="w-8 h-8 rounded-full border border-white/5 object-cover"
+                style="border: none;">
 
             <h1 class="font-medium text-zinc-100 tracking-tight">Moodsprite</h1>
         </div>
 
         <div class="flex items-center gap-2">
-            <button id="exportBtn" class="btn-secondary px-3 py-1.5 rounded-md text-xs font-medium flex items-center gap-2">
+            <button id="exportBtn"
+                class="btn-secondary px-3 py-1.5 rounded-md text-xs font-medium flex items-center gap-2">
                 <span class="material-symbols-rounded text-[16px]">download</span>
                 Export
             </button>
-            <button id="resetBtn" class="btn-secondary px-3 py-1.5 rounded-md text-xs font-medium flex items-center gap-2">
+            <button id="resetBtn"
+                class="btn-secondary px-3 py-1.5 rounded-md text-xs font-medium flex items-center gap-2">
                 <span class="material-symbols-rounded text-[16px]">refresh</span>
                 Reset
             </button>
@@ -136,20 +171,26 @@
         <div class="flex-1 bg-[#09090b] flex flex-col items-center justify-center p-4 relative overflow-hidden group">
 
             <div class="relative shadow-2xl rounded-lg overflow-hidden ring-1 ring-white/5">
-                <canvas id="gameCanvas" width="800" height="600" class="max-w-full max-h-[70vh] w-auto h-auto block cursor-crosshair bg-[#121212]"></canvas>
+                <canvas id="gameCanvas" width="800" height="600"
+                    class="max-w-full max-h-[70vh] w-auto h-auto block cursor-crosshair bg-[#121212]"></canvas>
 
-                <div class="absolute top-4 right-4 flex flex-col gap-2 items-end pointer-events-none transition-opacity opacity-50 group-hover:opacity-100">
-                     <div class="bg-black/60 backdrop-blur-md text-zinc-400 text-[10px] px-3 py-1.5 rounded-full border border-white/5">
+                <div
+                    class="absolute top-4 right-4 flex flex-col gap-2 items-end pointer-events-none transition-opacity opacity-50 group-hover:opacity-100">
+                    <div
+                        class="bg-black/60 backdrop-blur-md text-zinc-400 text-[10px] px-3 py-1.5 rounded-full border border-white/5">
                         WASD to Move • SPACE to Jump
                     </div>
                 </div>
 
-                <div class="absolute bottom-4 left-4 flex gap-2 pointer-events-none transition-opacity opacity-50 group-hover:opacity-100">
-                    <div class="bg-black/60 backdrop-blur-md px-2 py-1 rounded border border-white/5 flex items-center gap-2">
+                <div
+                    class="absolute bottom-4 left-4 flex gap-2 pointer-events-none transition-opacity opacity-50 group-hover:opacity-100">
+                    <div
+                        class="bg-black/60 backdrop-blur-md px-2 py-1 rounded border border-white/5 flex items-center gap-2">
                         <span class="text-[10px] text-zinc-500 font-semibold tracking-wider">STATE</span>
                         <span id="debugState" class="text-[10px] text-zinc-200 font-mono">IDLE</span>
                     </div>
-                    <div class="bg-black/60 backdrop-blur-md px-2 py-1 rounded border border-white/5 flex items-center gap-2">
+                    <div
+                        class="bg-black/60 backdrop-blur-md px-2 py-1 rounded border border-white/5 flex items-center gap-2">
                         <span class="text-[10px] text-zinc-500 font-semibold tracking-wider">POS</span>
                         <span id="posWorld" class="text-[10px] text-zinc-200 font-mono">0,0</span>
                     </div>
@@ -157,7 +198,8 @@
             </div>
         </div>
 
-        <aside class="w-full md:w-80 bg-[#09090b] border-l border-white/5 overflow-y-auto flex-shrink-0 custom-scrollbar">
+        <aside
+            class="w-full md:w-80 bg-[#09090b] border-l border-white/5 overflow-y-auto flex-shrink-0 custom-scrollbar">
             <div class="p-5 space-y-8">
 
                 <section>
@@ -165,16 +207,63 @@
                         <h2 class="text-[11px] font-medium text-zinc-500 uppercase tracking-widest">Source</h2>
                     </div>
 
-                    <div class="space-y-2">
-                        <label class="block w-full cursor-pointer group">
-                            <div class="flex flex-col items-center justify-center py-8 border border-dashed border-zinc-800 rounded-lg hover:border-zinc-600 hover:bg-zinc-900/30 transition-all">
-                                <span class="material-symbols-rounded text-zinc-600 group-hover:text-zinc-400 mb-2 transition-colors">add_photo_alternate</span>
-                                <span class="text-xs text-zinc-500 group-hover:text-zinc-300">Upload Sprite Sheet</span>
+                    <div class="space-y-4">
+                        <label id="dropZone" class="block w-full cursor-pointer group relative">
+                            <div class="flex flex-col items-center justify-center py-8 border border-dashed border-zinc-800 rounded-lg hover:border-zinc-500 hover:bg-zinc-900/50 transition-all pointer-events-none"
+                                id="dropZoneBorder">
+                                <span
+                                    class="material-symbols-rounded text-zinc-600 group-hover:text-zinc-400 mb-2 transition-colors">add_photo_alternate</span>
+                                <span class="text-xs text-zinc-500 group-hover:text-zinc-300">Main Sheet (Drag &
+                                    Drop)</span>
                             </div>
                             <input type="file" id="fileInput" class="hidden" accept="image/*">
                         </label>
 
-                        <button id="magicWandBtn" class="w-full btn-secondary py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-2">
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="block cursor-pointer group relative" id="dropZoneIdle">
+                                <div class="px-2 py-2 border border-dashed border-zinc-800 rounded hover:border-zinc-600 hover:bg-zinc-900/30 text-center transition-all pointer-events-none"
+                                    id="dropZoneBorderIdle">
+                                    <span
+                                        class="text-[9px] text-zinc-500 group-hover:text-zinc-300 font-bold uppercase block mb-1">Idle
+                                        Sheet</span>
+                                    <span id="lblIdle" class="text-[8px] text-zinc-600 truncate block">Default</span>
+                                </div>
+                                <input type="file" id="fileInputIdle" class="hidden" accept="image/*">
+                            </label>
+                            <label class="block cursor-pointer group relative" id="dropZoneWalk">
+                                <div class="px-2 py-2 border border-dashed border-zinc-800 rounded hover:border-zinc-600 hover:bg-zinc-900/30 text-center transition-all pointer-events-none"
+                                    id="dropZoneBorderWalk">
+                                    <span
+                                        class="text-[9px] text-zinc-500 group-hover:text-zinc-300 font-bold uppercase block mb-1">Walk
+                                        Sheet</span>
+                                    <span id="lblWalk" class="text-[8px] text-zinc-600 truncate block">Default</span>
+                                </div>
+                                <input type="file" id="fileInputWalk" class="hidden" accept="image/*">
+                            </label>
+                            <label class="block cursor-pointer group relative" id="dropZoneJump">
+                                <div class="px-2 py-2 border border-dashed border-zinc-800 rounded hover:border-zinc-600 hover:bg-zinc-900/30 text-center transition-all pointer-events-none"
+                                    id="dropZoneBorderJump">
+                                    <span
+                                        class="text-[9px] text-zinc-500 group-hover:text-zinc-300 font-bold uppercase block mb-1">Jump
+                                        Sheet</span>
+                                    <span id="lblJump" class="text-[8px] text-zinc-600 truncate block">Default</span>
+                                </div>
+                                <input type="file" id="fileInputJump" class="hidden" accept="image/*">
+                            </label>
+                            <label class="block cursor-pointer group relative" id="dropZoneCrouch">
+                                <div class="px-2 py-2 border border-dashed border-zinc-800 rounded hover:border-zinc-600 hover:bg-zinc-900/30 text-center transition-all pointer-events-none"
+                                    id="dropZoneBorderCrouch">
+                                    <span
+                                        class="text-[9px] text-zinc-500 group-hover:text-zinc-300 font-bold uppercase block mb-1">Crouch
+                                        Sheet</span>
+                                    <span id="lblCrouch" class="text-[8px] text-zinc-600 truncate block">Default</span>
+                                </div>
+                                <input type="file" id="fileInputCrouch" class="hidden" accept="image/*">
+                            </label>
+                        </div>
+
+                        <button id="magicWandBtn"
+                            class="w-full btn-secondary py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-2">
                             <span class="material-symbols-rounded text-[16px]">auto_fix_high</span> Remove Background
                         </button>
                     </div>
@@ -185,101 +274,180 @@
                         <h2 class="text-[11px] font-medium text-zinc-500 uppercase tracking-widest">Logic Map</h2>
                         <label class="flex items-center gap-2 text-[10px] cursor-pointer select-none">
                             <span class="text-zinc-500 hover:text-zinc-300 transition-colors">Physics</span>
-                            <div class="relative inline-block w-7 h-3.5 rounded-full bg-zinc-800 transition-colors has-[:checked]:bg-zinc-100">
+                            <div
+                                class="relative inline-block w-7 h-3.5 rounded-full bg-zinc-800 transition-colors has-[:checked]:bg-zinc-100">
                                 <input type="checkbox" id="physicsToggle" checked class="peer sr-only">
-                                <span class="absolute left-0.5 top-0.5 w-2.5 h-2.5 bg-zinc-500 rounded-full transition-all peer-checked:bg-black peer-checked:translate-x-3.5"></span>
+                                <span
+                                    class="absolute left-0.5 top-0.5 w-2.5 h-2.5 bg-zinc-500 rounded-full transition-all peer-checked:bg-black peer-checked:translate-x-3.5"></span>
                             </div>
                         </label>
                     </div>
 
                     <div class="space-y-4">
-                        <div class="grid grid-cols-3 gap-3">
-                            <div>
-                                <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">IDLE ROW</label>
-                                <input type="number" id="rowIdle" value="0" class="w-full py-1 text-xs text-center text-zinc-300">
+
+
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="space-y-2">
+                                <div>
+                                    <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">IDLE ROW</label>
+                                    <input type="number" id="rowIdle" value="0"
+                                        class="w-full py-1 text-xs text-center text-zinc-300 bg-[#09090b] border border-zinc-800 rounded focus:border-zinc-600 outline-none">
+                                </div>
+                                <div>
+                                    <label
+                                        class="text-[9px] text-zinc-600 font-semibold mb-1 block h-8 flex items-end leading-tight">IDLE
+                                        FRAMES</label>
+                                    <input type="number" id="framesIdle" value="4" min="1" placeholder="Frames"
+                                        class="w-full py-1 text-xs text-center text-zinc-400 bg-zinc-900 border border-zinc-800 rounded focus:border-zinc-600 outline-none"
+                                        title="Idle Frames">
+                                </div>
                             </div>
-                            <div>
-                                <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">WALK ROW</label>
-                                <input type="number" id="rowWalk" value="0" class="w-full py-1 text-xs text-center text-zinc-300">
+                            <div class="space-y-2">
+                                <div>
+                                    <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">WALK ROW</label>
+                                    <input type="number" id="rowWalk" value="0"
+                                        class="w-full py-1 text-xs text-center text-zinc-300 bg-[#09090b] border border-zinc-800 rounded focus:border-zinc-600 outline-none">
+                                </div>
+                                <div>
+                                    <label
+                                        class="text-[9px] text-zinc-600 font-semibold mb-1 block h-8 flex items-end leading-tight">WALK
+                                        FRAMES</label>
+                                    <input type="number" id="framesWalk" value="4" min="1" placeholder="Frames"
+                                        class="w-full py-1 text-xs text-center text-zinc-400 bg-zinc-900 border border-zinc-800 rounded focus:border-zinc-600 outline-none"
+                                        title="Walk Frames">
+                                </div>
                             </div>
-                            <div>
-                                <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">JUMP ROW</label>
-                                <input type="number" id="rowJump" value="0" class="w-full py-1 text-xs text-center text-zinc-300">
+                            <div class="space-y-2">
+                                <div>
+                                    <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">JUMP ROW</label>
+                                    <input type="number" id="rowJump" value="0"
+                                        class="w-full py-1 text-xs text-center text-zinc-300 bg-[#09090b] border border-zinc-800 rounded focus:border-zinc-600 outline-none">
+                                </div>
+                                <div>
+                                    <label
+                                        class="text-[9px] text-zinc-600 font-semibold mb-1 block h-8 flex items-end leading-tight">JUMP
+                                        FRAMES</label>
+                                    <input type="number" id="framesJump" value="4" min="1" placeholder="Frames"
+                                        class="w-full py-1 text-xs text-center text-zinc-400 bg-zinc-900 border border-zinc-800 rounded focus:border-zinc-600 outline-none"
+                                        title="Jump Frames">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div>
+                                    <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">CROUCH</label>
+                                    <input type="number" id="rowCrouch" value="0"
+                                        class="w-full py-1 text-xs text-center text-zinc-300 bg-[#09090b] border border-zinc-800 rounded focus:border-zinc-600 outline-none">
+                                </div>
+                                <div>
+                                    <label
+                                        class="text-[9px] text-zinc-600 font-semibold mb-1 block h-8 flex items-end leading-tight">CROUCH
+                                        FRAMES</label>
+                                    <input type="number" id="framesCrouch" value="4" min="1" placeholder="Frames"
+                                        class="w-full py-1 text-xs text-center text-zinc-400 bg-zinc-900 border border-zinc-800 rounded focus:border-zinc-600 outline-none"
+                                        title="Crouch Frames">
+                                </div>
                             </div>
                         </div>
 
                         <div>
-                             <div class="flex justify-between text-[10px] mb-2">
-                                 <span class="text-zinc-500">Gravity</span>
-                                 <span id="valGrav" class="text-zinc-300 font-mono">0.5</span>
-                             </div>
-                             <input type="range" id="sliderGrav" min="0.1" max="2.0" step="0.1" value="0.5" class="w-full">
+                            <div class="flex justify-between text-[10px] mb-2">
+                                <span class="text-zinc-500">Gravity</span>
+                                <span id="valGrav" class="text-zinc-300 font-mono">0.5</span>
+                            </div>
+                            <input type="range" id="sliderGrav" min="0.1" max="2.0" step="0.1" value="0.5"
+                                class="w-full">
                         </div>
                     </div>
-                </section>
+            </div>
+            </section>
 
-                <section>
-                    <div class="flex items-center justify-between mb-3">
-                        <h2 class="text-[11px] font-medium text-zinc-500 uppercase tracking-widest">Calibration</h2>
-                        <label class="flex items-center gap-2 text-[10px] cursor-pointer select-none group">
-                            <span class="text-zinc-500 group-hover:text-zinc-300 transition-colors">Hitbox</span>
-                            <input type="checkbox" id="debugToggle" checked class="accent-zinc-500 w-3 h-3 rounded-sm cursor-pointer">
-                        </label>
-                    </div>
+            <section>
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-[11px] font-medium text-zinc-500 uppercase tracking-widest">Calibration</h2>
+                    <label class="flex items-center gap-2 text-[10px] cursor-pointer select-none group">
+                        <span class="text-zinc-500 group-hover:text-zinc-300 transition-colors">Hitbox</span>
+                        <input type="checkbox" id="debugToggle" checked
+                            class="accent-zinc-500 w-3 h-3 rounded-sm cursor-pointer">
+                    </label>
+                </div>
 
-                    <div class="space-y-5">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <div class="flex justify-between text-[10px] mb-2">
-                                    <span class="text-zinc-500">Width</span>
-                                    <span id="valFrameW" class="text-zinc-300 font-mono">64px</span>
-                                </div>
-                                <input type="range" id="sliderFrameW" min="8" max="512" value="64" class="w-full">
+                <div class="space-y-5">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="flex justify-between text-[10px] mb-2">
+                                <span class="text-zinc-500">Width</span>
+                                <span id="valFrameW" class="text-zinc-300 font-mono">32px</span>
                             </div>
-                            <div>
-                                <div class="flex justify-between text-[10px] mb-2">
-                                    <span class="text-zinc-500">Height</span>
-                                    <span id="valFrameH" class="text-zinc-300 font-mono">64px</span>
-                                </div>
-                                <input type="range" id="sliderFrameH" min="8" max="512" value="64" class="w-full">
-                            </div>
+                            <input type="range" id="sliderFrameW" min="8" max="512" value="32" class="w-full">
                         </div>
-
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">OFFSET X</label>
-                                <input type="number" id="inputOffX" value="0" class="w-full py-1 text-xs text-right text-zinc-300">
+                        <div>
+                            <div class="flex justify-between text-[10px] mb-2">
+                                <span class="text-zinc-500">Height</span>
+                                <span id="valFrameH" class="text-zinc-300 font-mono">32px</span>
                             </div>
-                            <div>
-                                <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">OFFSET Y</label>
-                                <input type="number" id="inputOffY" value="0" class="w-full py-1 text-xs text-right text-zinc-300">
-                            </div>
-                        </div>
-
-                        <div class="space-y-4 pt-2">
-                            <div>
-                                <div class="flex justify-between text-[10px] mb-2">
-                                    <span class="text-zinc-500">Scale</span>
-                                    <span id="valScale" class="text-zinc-300 font-mono">3.0x</span>
-                                </div>
-                                <input type="range" id="sliderScale" min="0.5" max="8.0" step="0.1" value="3.0" class="w-full">
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-[10px] mb-2">
-                                    <span class="text-zinc-500">FPS</span>
-                                    <span id="valSpeed" class="text-zinc-300 font-mono">8 FPS</span>
-                                </div>
-                                <input type="range" id="sliderSpeed" min="1" max="60" value="8" class="w-full">
-                            </div>
+                            <input type="range" id="sliderFrameH" min="8" max="512" value="32" class="w-full">
                         </div>
                     </div>
-                </section>
 
-                <section class="pb-10">
-                    <h2 class="text-[11px] font-medium text-zinc-500 uppercase tracking-widest mb-3">Environment</h2>
-                    <div id="bgSelector" class="grid grid-cols-4 gap-2"></div>
-                    <input type="file" id="bgInput" class="hidden" accept="image/*">
-                </section>
+                    <div class="grid grid-cols-3 gap-2 py-1">
+                        <button
+                            class="btn-preset px-2 py-2 text-[10px] border border-zinc-800 rounded text-zinc-500 hover:text-white hover:border-zinc-600 bg-zinc-900/50 transition-all text-center"
+                            data-size="8">8x8</button>
+                        <button
+                            class="btn-preset px-2 py-2 text-[10px] border border-zinc-800 rounded text-zinc-500 hover:text-white hover:border-zinc-600 bg-zinc-900/50 transition-all text-center"
+                            data-size="16">16x16</button>
+                        <button
+                            class="btn-preset px-2 py-2 text-[10px] border border-zinc-800 rounded text-zinc-500 hover:text-white hover:border-zinc-600 bg-zinc-900/50 transition-all text-center"
+                            data-size="32">32x32</button>
+                        <button
+                            class="btn-preset px-2 py-2 text-[10px] border border-zinc-800 rounded text-zinc-500 hover:text-white hover:border-zinc-600 bg-zinc-900/50 transition-all text-center"
+                            data-size="48">48x48</button>
+                        <button
+                            class="btn-preset px-2 py-2 text-[10px] border border-zinc-800 rounded text-zinc-500 hover:text-white hover:border-zinc-600 bg-zinc-900/50 transition-all text-center"
+                            data-size="64">64x64</button>
+                        <button
+                            class="btn-preset px-2 py-2 text-[10px] border border-zinc-800 rounded text-zinc-500 hover:text-white hover:border-zinc-600 bg-zinc-900/50 transition-all text-center"
+                            data-size="128">128x128</button>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">OFFSET X</label>
+                            <input type="number" id="inputOffX" value="0"
+                                class="w-full py-1 text-xs text-right text-zinc-300">
+                        </div>
+                        <div>
+                            <label class="text-[9px] text-zinc-600 font-semibold mb-1 block">OFFSET Y</label>
+                            <input type="number" id="inputOffY" value="0"
+                                class="w-full py-1 text-xs text-right text-zinc-300">
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div>
+                            <div class="flex justify-between text-[10px] mb-2">
+                                <span class="text-zinc-500">Scale</span>
+                                <span id="valScale" class="text-zinc-300 font-mono">3.0x</span>
+                            </div>
+                            <input type="range" id="sliderScale" min="0.5" max="8.0" step="0.1" value="3.0"
+                                class="w-full">
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] mb-2">
+                                <span class="text-zinc-500">FPS</span>
+                                <span id="valSpeed" class="text-zinc-300 font-mono">8 FPS</span>
+                            </div>
+                            <input type="range" id="sliderSpeed" min="1" max="60" value="8" class="w-full">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pb-10">
+                <h2 class="text-[11px] font-medium text-zinc-500 uppercase tracking-widest mb-3">Environment</h2>
+                <div id="bgSelector" class="grid grid-cols-4 gap-2"></div>
+                <input type="file" id="bgInput" class="hidden" accept="image/*">
+            </section>
 
             </div>
         </aside>
@@ -287,17 +455,27 @@
 
     <footer class="h-12 px-4 flex items-center justify-between flex-shrink-0 z-20 border-t border-white/5 bg-[#09090b]">
         <div class="flex items-center gap-2">
-            <p class="text-zinc-500 text-xs font-medium">Moodsprite <span class="text-zinc-600">Current stable version:</span> v2.0</p>
+            <p class="text-zinc-500 text-xs font-medium">Moodsprite <span class="text-zinc-600">Current stable
+                    version:</span> v2.1</p>
         </div>
         <div class="flex items-center gap-2">
             <a href="https://www.patreon.com/cw/bdvd" target="_blank" class="btn-icon" title="Patreon">
-                <svg role="img" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z"/></svg>
+                <svg role="img" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0 .48v23.04h4.22V.48zm15.385 0c-4.764 0-8.641 3.88-8.641 8.65 0 4.755 3.877 8.623 8.641 8.623 4.75 0 8.615-3.868 8.615-8.623C24 4.36 20.136.48 15.385.48z" />
+                </svg>
             </a>
             <a href="https://linktr.ee/davidbrum" target="_blank" class="btn-icon" title="Linktree">
                 <span class="material-symbols-rounded text-[18px]">link</span>
             </a>
             <a href="https://github.com/davidbrum25/moodsprite" target="_blank" class="btn-icon" title="GitHub">
-                <svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                <svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>GitHub</title>
+                    <path
+                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
             </a>
         </div>
     </footer>
@@ -309,30 +487,30 @@
             const c = document.createElement('canvas');
             c.width = size; c.height = size;
             const ctx = c.getContext('2d');
-            const rect = (x,y,w,h, col) => { ctx.fillStyle = col; ctx.fillRect(x,y,w,h); };
+            const rect = (x, y, w, h, col) => { ctx.fillStyle = col; ctx.fillRect(x, y, w, h); };
 
-            if(type === 'grass') {
-                rect(0,0,size,size, '#3f6212'); // Zinc-greenish
-                for(let i=0; i<30; i++) {
-                    const x = Math.floor(Math.random()*size);
-                    const y = Math.floor(Math.random()*size);
-                    rect(x,y,2,2, Math.random() > 0.5 ? '#4d7c0f' : '#365314');
+            if (type === 'grass') {
+                rect(0, 0, size, size, '#3f6212'); // Zinc-greenish
+                for (let i = 0; i < 30; i++) {
+                    const x = Math.floor(Math.random() * size);
+                    const y = Math.floor(Math.random() * size);
+                    rect(x, y, 2, 2, Math.random() > 0.5 ? '#4d7c0f' : '#365314');
                 }
             }
-            else if(type === 'space') {
-                rect(0,0,size,size, '#09090b');
+            else if (type === 'space') {
+                rect(0, 0, size, size, '#09090b');
                 rect(10, 10, 1, 1, '#71717a');
                 rect(25, 5, 2, 2, '#a1a1aa');
                 rect(18, 18, 1, 1, '#52525b');
             }
-            else if(type === 'stone') {
-                rect(0,0,size,size, '#27272a');
+            else if (type === 'stone') {
+                rect(0, 0, size, size, '#27272a');
                 ctx.fillStyle = '#3f3f46';
-                ctx.fillRect(1,1,14,14); ctx.fillRect(17,1,14,14);
-                ctx.fillRect(1,17,14,14); ctx.fillRect(17,17,14,14);
+                ctx.fillRect(1, 1, 14, 14); ctx.fillRect(17, 1, 14, 14);
+                ctx.fillRect(1, 17, 14, 14); ctx.fillRect(17, 17, 14, 14);
                 ctx.fillStyle = '#52525b';
-                ctx.fillRect(1,1,13,1); ctx.fillRect(1,1,1,13);
-                ctx.fillRect(17,17,13,1); ctx.fillRect(17,17,1,13);
+                ctx.fillRect(1, 1, 13, 1); ctx.fillRect(1, 1, 1, 13);
+                ctx.fillRect(17, 17, 13, 1); ctx.fillRect(17, 17, 1, 13);
             }
             return c.toDataURL();
         }
@@ -357,15 +535,26 @@
             scale: document.getElementById('sliderScale'),
             speed: document.getElementById('sliderSpeed'),
             gravity: document.getElementById('sliderGrav'),
+            framesIdle: document.getElementById('framesIdle'),
+            framesWalk: document.getElementById('framesWalk'),
+            framesJump: document.getElementById('framesJump'),
+            framesCrouch: document.getElementById('framesCrouch'),
             rowIdle: document.getElementById('rowIdle'),
             rowWalk: document.getElementById('rowWalk'),
             rowJump: document.getElementById('rowJump'),
+            rowCrouch: document.getElementById('rowCrouch'),
             physicsToggle: document.getElementById('physicsToggle'),
             debug: document.getElementById('debugToggle'),
             fileInput: document.getElementById('fileInput'),
+            fileInputIdle: document.getElementById('fileInputIdle'),
+            fileInputWalk: document.getElementById('fileInputWalk'),
+            fileInputJump: document.getElementById('fileInputJump'),
+            fileInputCrouch: document.getElementById('fileInputCrouch'),
             bgInput: document.getElementById('bgInput'),
             magicWand: document.getElementById('magicWandBtn'),
             bgSelector: document.getElementById('bgSelector'),
+            dropZone: document.getElementById('dropZone'),
+            dropZoneBorder: document.getElementById('dropZoneBorder'),
             labels: {
                 frameW: document.getElementById('valFrameW'),
                 frameH: document.getElementById('valFrameH'),
@@ -373,7 +562,11 @@
                 speed: document.getElementById('valSpeed'),
                 grav: document.getElementById('valGrav'),
                 world: document.getElementById('posWorld'),
-                state: document.getElementById('debugState')
+                state: document.getElementById('debugState'),
+                lblIdle: document.getElementById('lblIdle'),
+                lblWalk: document.getElementById('lblWalk'),
+                lblJump: document.getElementById('lblJump'),
+                lblCrouch: document.getElementById('lblCrouch')
             }
         };
 
@@ -396,26 +589,39 @@
             currentState: 'IDLE',
             frameIndex: 0,
             lastTime: 0,
-            frameW: 64, frameH: 64,
+            frameW: 32, frameH: 32,
+            frameCount: 4,
+            frameCounts: { IDLE: 4, WALK: 4, JUMP: 4, CROUCH: 4 },
             offX: 0, offY: 0,
             scale: 3, fps: 8, gravity: 0.5,
-            rows: { IDLE: 0, WALK: 0, JUMP: 0 },
-            physicsEnabled: true
+            rows: { IDLE: 0, WALK: 0, JUMP: 0, CROUCH: 0 },
+            physicsEnabled: true,
+            lastState: 'IDLE' // To track state changes
         };
 
-        const keys = { ArrowUp:false, ArrowDown:false, ArrowLeft:false, ArrowRight:false, w:false, s:false, a:false, d:false, " ":false };
+        const keys = { ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false, w: false, s: false, a: false, d: false, " ": false };
 
-        let rawSpriteImg = new Image();
-        let displaySpriteImg = new Image();
+        let displaySpriteImg = new Image(); // Main Display Image
+
+        // Image Sources
+        const spriteSources = {
+            MAIN: new Image(),
+            IDLE: null,
+            WALK: null,
+            JUMP: null,
+            CROUCH: null
+        };
+
         const bgImg = new Image();
 
         function init() {
-            rawSpriteImg.src = ASSETS.sprite;
-            rawSpriteImg.onload = () => { displaySpriteImg = rawSpriteImg; };
+            spriteSources.MAIN.src = ASSETS.sprite;
+            spriteSources.MAIN.onload = () => { displaySpriteImg = spriteSources.MAIN; };
             loadBackground(0);
             updateStateFromUI();
             buildBgSelector();
             setupListeners();
+            setupDragAndDrop();
             requestAnimationFrame(loop);
         }
 
@@ -433,18 +639,18 @@
         }
 
         function removeBackground(img) {
-            if(!img.width) return img;
+            if (!img.width) return img;
             const c = document.createElement('canvas');
             c.width = img.width; c.height = img.height;
             const x = c.getContext('2d');
             x.drawImage(img, 0, 0);
-            const imageData = x.getImageData(0,0, c.width, c.height);
+            const imageData = x.getImageData(0, 0, c.width, c.height);
             const d = imageData.data;
             const r = d[0], g = d[1], b = d[2];
             const tolerance = 20;
-            for(let i=0; i<d.length; i+=4) {
-                if(Math.abs(d[i]-r) < tolerance && Math.abs(d[i+1]-g) < tolerance && Math.abs(d[i+2]-b) < tolerance) {
-                    d[i+3] = 0;
+            for (let i = 0; i < d.length; i += 4) {
+                if (Math.abs(d[i] - r) < tolerance && Math.abs(d[i + 1] - g) < tolerance && Math.abs(d[i + 2] - b) < tolerance) {
+                    d[i + 3] = 0;
                 }
             }
             x.putImageData(imageData, 0, 0);
@@ -458,7 +664,7 @@
             window.addEventListener('keyup', e => keys[e.key] = false);
 
             const bind = (el, updateLabel) => {
-                el.addEventListener('input', () => { if(updateLabel) updateLabel(); updateStateFromUI(); });
+                el.addEventListener('input', () => { if (updateLabel) updateLabel(); updateStateFromUI(); });
             };
 
             bind(ui.frameW, () => ui.labels.frameW.textContent = ui.frameW.value + 'px');
@@ -467,29 +673,46 @@
             bind(ui.speed, () => ui.labels.speed.textContent = ui.speed.value + ' FPS');
             bind(ui.gravity, () => ui.labels.grav.textContent = ui.gravity.value);
 
-            [ui.offX, ui.offY, ui.rowIdle, ui.rowWalk, ui.rowJump].forEach(el => el.addEventListener('input', updateStateFromUI));
+            // Frame counts per state
+            [ui.offX, ui.offY, ui.rowIdle, ui.rowWalk, ui.rowJump, ui.rowCrouch,
+            ui.framesIdle, ui.framesWalk, ui.framesJump, ui.framesCrouch].forEach(el => el.addEventListener('input', updateStateFromUI));
+
+
 
             ui.physicsToggle.addEventListener('change', () => {
                 state.physicsEnabled = ui.physicsToggle.checked;
-                if(state.physicsEnabled) state.y = 0;
+                if (state.physicsEnabled) state.y = 0;
             });
 
-            ui.fileInput.addEventListener('change', e => {
-                const file = e.target.files[0];
-                if(file) {
-                    const reader = new FileReader();
-                    reader.onload = evt => {
-                        rawSpriteImg = new Image();
-                        rawSpriteImg.src = evt.target.result;
-                        rawSpriteImg.onload = () => { displaySpriteImg = rawSpriteImg; };
+            // File Inputs
+            const handleFile = (key, file, labelEl) => {
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = evt => {
+                    const img = new Image();
+                    img.src = evt.target.result;
+                    img.onload = () => {
+                        if (key === 'MAIN') {
+                            spriteSources.MAIN = img;
+                            displaySpriteImg = img;
+                        } else {
+                            spriteSources[key] = img;
+                            if (labelEl) labelEl.textContent = "Custom";
+                        }
                     };
-                    reader.readAsDataURL(file);
-                }
-            });
+                };
+                reader.readAsDataURL(file);
+            };
+
+            ui.fileInput.addEventListener('change', e => handleFile('MAIN', e.target.files[0]));
+            ui.fileInputIdle.addEventListener('change', e => handleFile('IDLE', e.target.files[0], ui.labels.lblIdle));
+            ui.fileInputWalk.addEventListener('change', e => handleFile('WALK', e.target.files[0], ui.labels.lblWalk));
+            ui.fileInputJump.addEventListener('change', e => handleFile('JUMP', e.target.files[0], ui.labels.lblJump));
+            ui.fileInputCrouch.addEventListener('change', e => handleFile('CROUCH', e.target.files[0], ui.labels.lblCrouch));
 
             ui.bgInput.addEventListener('change', e => {
                 const file = e.target.files[0];
-                if(file) {
+                if (file) {
                     const reader = new FileReader();
                     reader.onload = evt => loadCustomBackground(evt.target.result);
                     reader.readAsDataURL(file);
@@ -500,14 +723,85 @@
                 const originalText = ui.magicWand.innerHTML;
                 ui.magicWand.innerHTML = '<span class="material-symbols-rounded text-sm animate-spin">refresh</span> Processing...';
                 setTimeout(() => {
-                    displaySpriteImg = removeBackground(rawSpriteImg);
+                    // Try to use Current Logic Map image or fallback
+                    const currentImg = spriteSources.MAIN;
+                    // Note: Magic Wand only affects MAIN for now for simplicity, or we should update all?
+                    // Let's just update MAIN as it's the "Source".
+                    const cleaned = removeBackground(currentImg);
+                    spriteSources.MAIN = cleaned;
+                    displaySpriteImg = cleaned;
+
                     ui.magicWand.innerHTML = '<span class="material-symbols-rounded text-[16px]">check</span> Done!';
                     setTimeout(() => ui.magicWand.innerHTML = originalText, 2000);
                 }, 100);
             });
 
+            // Presets
+            document.querySelectorAll('.btn-preset').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const size = parseInt(btn.dataset.size);
+                    ui.frameW.value = size;
+                    ui.frameH.value = size;
+                    ui.labels.frameW.textContent = size + 'px';
+                    ui.labels.frameH.textContent = size + 'px';
+                    updateStateFromUI();
+                });
+            });
+
             document.getElementById('resetBtn').addEventListener('click', () => { state.x = 0; state.y = 0; state.vx = 0; state.vy = 0; });
             document.getElementById('exportBtn').addEventListener('click', exportJSON);
+        }
+
+        function setupDragAndDrop() {
+            // Helper to attach DnD to a zone
+            const attach = (zoneId, borderId, inputId) => {
+                const zone = document.getElementById(zoneId);
+                const border = document.getElementById(borderId);
+                const input = document.getElementById(inputId);
+
+                if (!zone || !border || !input) return;
+
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                    zone.addEventListener(eventName, preventDefaults, false);
+                });
+
+                function preventDefaults(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    zone.addEventListener(eventName, () => {
+                        border.classList.add('border-zinc-400', 'bg-zinc-800');
+                        border.classList.remove('border-zinc-800');
+                    }, false);
+                });
+
+                ['dragleave', 'drop'].forEach(eventName => {
+                    zone.addEventListener(eventName, () => {
+                        border.classList.remove('border-zinc-400', 'bg-zinc-800');
+                        border.classList.add('border-zinc-800');
+                    }, false);
+                });
+
+                zone.addEventListener('drop', (e) => {
+                    const dt = e.dataTransfer;
+                    const files = dt.files;
+                    if (files.length) {
+                        input.files = files;
+                        const event = new Event('change');
+                        input.dispatchEvent(event);
+                    }
+                }, false);
+            };
+
+            // Main
+            attach('dropZone', 'dropZoneBorder', 'fileInput');
+            // Individual
+            attach('dropZoneIdle', 'dropZoneBorderIdle', 'fileInputIdle');
+            attach('dropZoneWalk', 'dropZoneBorderWalk', 'fileInputWalk');
+            attach('dropZoneJump', 'dropZoneBorderJump', 'fileInputJump');
+            attach('dropZoneCrouch', 'dropZoneBorderCrouch', 'fileInputCrouch');
         }
 
         function buildBgSelector() {
@@ -538,9 +832,14 @@
             state.scale = parseFloat(ui.scale.value);
             state.fps = parseInt(ui.speed.value);
             state.gravity = parseFloat(ui.gravity.value);
+            state.frameCounts.IDLE = parseInt(ui.framesIdle.value) || 1;
+            state.frameCounts.WALK = parseInt(ui.framesWalk.value) || 1;
+            state.frameCounts.JUMP = parseInt(ui.framesJump.value) || 1;
+            state.frameCounts.CROUCH = parseInt(ui.framesCrouch.value) || 1;
             state.rows.IDLE = parseInt(ui.rowIdle.value);
             state.rows.WALK = parseInt(ui.rowWalk.value);
             state.rows.JUMP = parseInt(ui.rowJump.value);
+            state.rows.CROUCH = parseInt(ui.rowCrouch.value);
         }
 
         function loop(timestamp) {
@@ -551,16 +850,19 @@
 
         function update(timestamp) {
             let inputX = 0;
-            if(keys.ArrowLeft || keys.a) { inputX = -1; state.facingLeft = true; }
-            if(keys.ArrowRight || keys.d) { inputX = 1; state.facingLeft = false; }
+            if (keys.ArrowLeft || keys.a) { inputX = -1; state.facingLeft = true; }
+            if (keys.ArrowRight || keys.d) { inputX = 1; state.facingLeft = false; }
 
-            if(state.physicsEnabled) {
+            // Crouch Input
+            const isCrouching = (keys.ArrowDown || keys.s) && state.onGround;
+
+            if (state.physicsEnabled) {
                 state.vx = inputX * state.moveSpeed;
                 state.vy += state.gravity;
                 state.y += state.vy;
                 state.x += state.vx;
 
-                if(state.y >= 0) {
+                if (state.y >= 0) {
                     state.y = 0;
                     state.vy = 0;
                     state.onGround = true;
@@ -568,14 +870,14 @@
                     state.onGround = false;
                 }
 
-                if(state.onGround && keys[" "]) {
+                if (state.onGround && keys[" "] && !isCrouching) {
                     state.vy = state.jumpForce;
                     state.onGround = false;
                 }
             } else {
                 let inputY = 0;
-                if(keys.ArrowUp || keys.w) inputY = -1;
-                if(keys.ArrowDown || keys.s) inputY = 1;
+                if (keys.ArrowUp || keys.w) inputY = -1;
+                if (keys.ArrowDown || keys.s) inputY = 1;
                 state.vx = inputX * state.moveSpeed;
                 state.vy = inputY * state.moveSpeed;
                 state.x += state.vx;
@@ -583,9 +885,16 @@
                 state.onGround = true;
             }
 
-            if(!state.onGround) state.currentState = 'JUMP';
-            else if(Math.abs(state.vx) > 0.1) state.currentState = 'WALK';
+            if (!state.onGround) state.currentState = 'JUMP';
+            else if (isCrouching) state.currentState = 'CROUCH';
+            else if (Math.abs(state.vx) > 0.1) state.currentState = 'WALK';
             else state.currentState = 'IDLE';
+
+            // State Change Detection
+            if (state.currentState !== state.lastState) {
+                state.frameIndex = 0;
+                state.lastState = state.currentState;
+            }
 
             const pad = 150;
             const screenX = state.x - state.camX;
@@ -602,14 +911,15 @@
             const delta = timestamp - state.lastTime;
             if (delta >= msPerFrame || !state.lastTime) {
                 state.lastTime = timestamp;
-                state.frameIndex = (state.frameIndex + 1) % 4;
+                const totalFrames = state.frameCounts[state.currentState] || 4;
+                state.frameIndex = (state.frameIndex + 1) % totalFrames;
             }
         }
 
         function draw() {
             ctx.save();
             ctx.translate(-state.camX, -state.camY);
-            if(bgPattern) {
+            if (bgPattern) {
                 ctx.fillStyle = bgPattern;
                 ctx.fillRect(state.camX, state.camY, canvas.width, canvas.height);
             } else {
@@ -617,7 +927,7 @@
                 ctx.fillRect(state.camX, state.camY, canvas.width, canvas.height);
             }
 
-            if(state.physicsEnabled) {
+            if (state.physicsEnabled) {
                 ctx.strokeStyle = 'rgba(255,255,255,0.1)';
                 ctx.lineWidth = 2;
                 ctx.beginPath();
@@ -627,7 +937,7 @@
             }
             ctx.restore();
 
-            if(displaySpriteImg.complete && displaySpriteImg.naturalWidth) {
+            if (displaySpriteImg.complete && displaySpriteImg.naturalWidth) {
                 ctx.save();
                 const drawX = Math.round(state.x - state.camX);
                 const drawY = Math.round(state.y - state.camY);
@@ -639,13 +949,18 @@
                 const sx = state.offX + (state.frameIndex * state.frameW);
                 const sy = state.offY + (currentRow * state.frameH);
 
-                ctx.imageSmoothingEnabled = false;
-                ctx.drawImage(displaySpriteImg, sx, sy, state.frameW, state.frameH, -state.frameW/2, -state.frameH/2, state.frameW, state.frameH);
+                // Determine image to use
+                let imgToDraw = spriteSources[state.currentState] || spriteSources.MAIN;
 
-                if(ui.debug.checked) {
+                ctx.imageSmoothingEnabled = false;
+                if (imgToDraw && imgToDraw.complete && imgToDraw.naturalWidth) {
+                    ctx.drawImage(imgToDraw, sx, sy, state.frameW, state.frameH, -state.frameW / 2, -state.frameH / 2, state.frameW, state.frameH);
+                }
+
+                if (ui.debug.checked) {
                     ctx.strokeStyle = '#22c55e';
-                    ctx.lineWidth = 1/state.scale;
-                    ctx.strokeRect(-state.frameW/2, -state.frameH/2, state.frameW, state.frameH);
+                    ctx.lineWidth = 1 / state.scale;
+                    ctx.strokeRect(-state.frameW / 2, -state.frameH / 2, state.frameW, state.frameH);
                 }
                 ctx.restore();
             }
@@ -661,7 +976,7 @@
                     jump: { row: state.rows.JUMP }
                 }
             };
-            const blob = new Blob([JSON.stringify(data, null, 2)], {type : 'application/json'});
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -672,4 +987,5 @@
         init();
     </script>
 </body>
+
 </html>
